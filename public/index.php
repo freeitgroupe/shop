@@ -1,10 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: admin
- * Date: 06.03.2018
- * Time: 14:01
- */
+
 require_once dirname(__DIR__) . '/config/init.php';
-echo dirname(__DIR__);
-//var_dump($_SERVER['QUERY_STRING']);
+require_once LIBS . '/functions.php';
+require_once CONF . '/routes.php';
+new \ishop\App();
+
+//debug(\ishop\App::$app->getProperties());
+//throw new Exception('Page not found!', 500);
+//debug(\ishop\Router::getRoutes());
