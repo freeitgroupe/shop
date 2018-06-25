@@ -102,3 +102,9 @@
 =================
 [2018-06-23 14:28:35] Текст ошибки: Controller app\controllers\ViewControllernot found | File name: C:\OSPanel\domains\ishop2.loc\vendor\ishop\core\Router.php | Line: 46
 =================
+[2018-06-25 10:34:09] Текст ошибки: Page not found | File name: C:\OSPanel\domains\ishop2.loc\vendor\ishop\core\Router.php | Line: 50
+=================
+[2018-06-25 10:47:51] Текст ошибки: Template test not found | File name: C:\OSPanel\domains\ishop2.loc\vendor\ishop\core\base\View.php | Line: 47
+=================
+[2018-06-25 15:53:18] Текст ошибки: Not found view C:\OSPanel\domains\ishop2.loc/app/views/Page/view.php | File name: C:\OSPanel\domains\ishop2.loc\vendor\ishop\core\base\View.php | Line: 42
+=================
