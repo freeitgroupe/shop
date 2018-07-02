@@ -5,5 +5,7 @@
       "app\\": "app"
     }
   },
-  "require": {} //объект зависимостей
+  "require": {
+    "gabordemooij/redbean": "dev-master"
+  }
 }

@@ -8,14 +8,13 @@ class MainController extends AppController
 {
     public function indexAction()
     {
-        //$this->layout = 'test';
-        //debug($this->controller);
-        //echo __METHOD__;
+        $posts = \R::findAll('test');
+        //debug($posts);
         $this->setMeta(App::$app->getProperty('shop_name'), 'description', 'keywords');
         $name = 'John';
         $age = 30;
         $names = ['Andrey', 'Jane'];
-        $this->set(compact('name',  'age', 'names'));
+        $this->set(compact('name',  'age', 'names', 'posts'));
     }
 
 }
