@@ -128,3 +128,5 @@
 =================
 [2018-07-04 12:23:15] Текст ошибки: no connect with db | File name: C:\OSPanel\domains\ishop2.loc\vendor\ishop\core\Db.php | Line: 14
 =================
+[2018-07-05 13:22:30] Текст ошибки: Page not found | File name: C:\OSPanel\domains\ishop2.loc\vendor\ishop\core\Router.php | Line: 51
+=================

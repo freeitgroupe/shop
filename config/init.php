@@ -7,7 +7,7 @@ define("CORE", ROOT . '/vendor/ishop/core');
 define("LIBS", ROOT . '/vendor/ishop/core/libs');
 define("CACHE", ROOT . '/tmp/cache');
 define("CONF", ROOT . '/config');
-define("LAYOUT", 'default');
+define("LAYOUT", 'shop');
 define("DEF_ACTION", 'index');
 
 // http://ishop2.loc/public/index.php
