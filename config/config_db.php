@@ -2,7 +2,7 @@
 
 return
     [
-        'dsn'=>'mysql:host=localhost;dbname=ishop2;charset=utf8',
+        'dsn'=>'mysql:host=localhost;dbname=webene00_zb_test_loc;charset=utf8',
         'user'=>'root',
         'pass'=>'123456'
     ];

@@ -18,6 +18,8 @@ $app_path = preg_replace("#[^/]+$#", '', $app_path);
 $app_path = str_replace('/public/', '', $app_path);
 define("PATH", $app_path);
 define("ADMIN", PATH . '/admin');
+define("CAT_IMG",PATH . '/uploads_images/category/baseimg/');
+define("PROD_IMG",PATH . '/uploads_images/product/baseimg/');
 
 //echo __DIR__;
 require_once ROOT . '/vendor/autoload.php';

@@ -1,28 +1,25 @@
-<?php defined("CATALOG") or die("Access denied");
-//require_once "header.php";
-?>
     <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
     <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml" itemscope="" itemtype="http://schema.org/WebPage">
     <head>
         <meta http-equiv="content-type" content="text/plain; charset=utf-8" />
-        <meta name="csrf-token" content="<?= $_SESSION['csrf_token'] ?>">
+        <meta name="csrf-token" content="">
         <!--title-->
-        <title><?=SITE_NAME .' | ' . $title_header?></title>
+        <title></title>
         <!--twitter header-->
-        <meta name="google-site-verification" content="kq2dHJGUktWDtrj0vjaezO6k-yEQFPjq-1aL_cQARck"/>
+        <meta name="google-site-verification" content=""/>
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content="@<?=SITE_NAME?>" />
+        <meta name="twitter:site" content="@" />
         <meta name="twitter:creator" content="@elegantcode" />
         <!--facebook header-->
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="<?=SITE_NAME ?>" />
-        <meta property="og:url" content="<?=substr(PATH, 0, -1) . $_SERVER['REQUEST_URI']?>" />
-        <meta property="og:title" content="<?=SITE_NAME .' | ' . $title_header?>" />
-        <meta property="og:description" content="<?=$description_header?>" />
-        <meta property="og:image" content="<?=$image_header?>" />
+        <meta property="og:site_name" content="" />
+        <meta property="og:url" content="" />
+        <meta property="og:title" content="" />
+        <meta property="og:description" content="" />
+        <meta property="og:image" content="" />
         <!--gefault header-->
-        <meta name="keywords" content="<?=$keywords_header?>" />
-        <meta name="description" content="<?=$description_header?>" />
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
         <!--include header-->
         <!--    <link rel="stylesheet" href="/css/main.css">;-->
         <link rel="stylesheet" href="/css/main_mob_new.css">
@@ -41,7 +38,6 @@
         <meta name="msapplication-TileColor" content="#2b5797">
         <meta name="theme-color" content="#ffffff">
         <script src="/js/jquery-3.2.1.min.js"></script>
-        <?php require_once "slider_head.php"?>
         <script src="/js/functions.js"></script>
         <script src="/js/accounting.js"></script>    <!--accounting -->
         <script src="/js/jquery-ui.js"></script>    <!--for search -->
@@ -71,6 +67,12 @@
                                         <?php endforeach;?>
                                     </li>
                                 </ul>
+                            <?php else:?>
+                                <ul id="listBox clear">
+                                    <li>
+                                        <a href="#">empty</a>
+                                    </li>
+                                </ul>
                             <?php endif;?>
                         </nav>
                         <div class="phoneBox clear right">
@@ -82,7 +84,7 @@
                                 <button id="reCallMe">CALL ME</button>
                             </div>
                             <div class="phoneNumber right">
-                                <?=PHONE_SITE?>
+                                phone site: 8 800 555 55 55
                             </div>
                         </div>
                     </div>
@@ -99,15 +101,16 @@
                                         </span>
                                 </div>
                                 <div class="closeMenu" id="menuOpened">
-                                        <span class="menuName closeIt">
-                                            Return Page
-                                        </span>
+
                                 </div>
                             </div>
                         </div>
                         <div class="warhouseBox left">
+                            <span class="menuName closeIt">
+                                        Return Page
+                                    </span>
                             <p>Your location :</p>
-                            <a href="#" class="warhouseLink" id="warhouse"><?=$geoLocationUsers?></a>
+                            <a href="#" class="warhouseLink" id="warhouse">location: 0800, losAngeles</a>
                             <?php /* ?>
                                 <select name="warehouse" id="WarehouseSelect">
                                     <?php ////-> Массив складов с выбранным складом для пользователя?>
@@ -145,8 +148,8 @@
 
                         <div class="pofileLink right">
                             <div class="profileBox clear">
-                                <?=$user_greeting?>
-                                <?=$user_header?>
+                                 Hello user
+                                 Jym
                                 <?php if(isset($_SESSION['auth_role']) && $_SESSION['auth_role'] == 2):?>
                                     <a href="/admin/">Admin-panel</a>
                                 <?php endif;?>
@@ -166,7 +169,10 @@
                                     </ul>
                                 </div>
                                 <div class="miniInfo">
-                                    <div class="minOrder"><span class="dollarLeft"><?=MIN_SUM_ORDER . $currency?></span>More to minimal order</div>
+                                    <div class="minOrder">
+                                        <span class="dollarLeft">
+                                            50$
+                                        </span>More to minimal order</div>
                                     <div class="minFooter clear">
                                         <div class="wishList" id="shoppingWishList">a</div>
                                         <div class="checkOut">
@@ -278,7 +284,6 @@
     </div>
 </div>
 <!-- header end -->
-
     <!-- slider -->
     <!--<div class="embraceFull">-->
     <!--    --><?php ////require_once "slider_container.php"?>
@@ -286,25 +291,30 @@
     <!--</div>-->
     <div class="embraceFull clear indexVideo">
         <div class="embrace indexVideoBox clear">
-            <?=htmlspecialchars_decode($SliderContent['description'])?>
+            <div class="videoSplitter clear">
+                <video controls="controls" height="267" poster="video/del.jpg" width="400"><source avc1.42e01e="" src="http://zupplybox.com/video/zupply.mp4" type="video/mp4; codecs=" /> Тег video не поддерживается вашим браузером. Обновитесь. <a href="../video/duel.mp4">Скачайте видео</a>.</video>
+            </div>
+            <div class="videoSplitter clear">
+                <h2 class="wellCome">Welcome.</h2>
+                <a class="button" href="/registration">Create account</a>
+            </div>
         </div>
     </div>
-
     <!-- slider end -->
-
     <!-- main page content -->
     <!-- categories box -->
     <div class="embraceFull">
         <div class="embrace clear categoriesIndex">
+            <?php //debug($primary_category); ?>
             <?php if(isset($primary_category) && $primary_category != false):?>
-                <?php for($i=1, $count=count($primary_category); $i<=$count; $i++):?>
-                    <div class="indexSingleCat">
-                        <a href="/category/<?=$primary_category[$i]['alias']?>">
-                            <img src="<?=CAT_IMG . $primary_category[$i]['image']?>">
-                        </a>
-                        <div class="nameBox"><?=$primary_category[$i]['title']?></div>
-                    </div>
-                <?php endfor?>
+            <?php for($i=1, $count = count($primary_category); $i<=$count; $i++):?>
+            <div class="indexSingleCat">
+                <a href="/category/<?=$primary_category[$i]['alias']?>">
+                    <img src="<?=CAT_IMG . $primary_category[$i]['image']?>">
+                </a>
+                <div class="nameBox"><?=$primary_category[$i]['title']?></div>
+            </div>
+            <?php endfor?>
             <?php endif?>
         </div>
     </div>
@@ -496,10 +506,6 @@
 
 
 <!-- responsive and menu elemants -->
-<?php if(isset($_SESSION['category_search'])){unset($_SESSION['category_search']);}?>
-<?php if(isset($_SESSION['message'])){unset($_SESSION['message']);}?>
-<?php if(isset($_SESSION['search'])){unset($_SESSION['search']);}?>
-<?php if(isset($_SESSION['cart'])){unset($_SESSION['cart']);}?>
 <!-- scripts -->
 <script>
     <?php //Проверка заголовка ?>
