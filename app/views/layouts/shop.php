@@ -148,8 +148,10 @@
 
                         <div class="pofileLink right">
                             <div class="profileBox clear">
-                                 Hello user
-                                 Jym
+                                 Hello user Jym
+                                <select name="" id="currency">
+                                    <?php new \app\widgets\currency\Currency();?>
+                                </select>
                                 <?php if(isset($_SESSION['auth_role']) && $_SESSION['auth_role'] == 2):?>
                                     <a href="/admin/">Admin-panel</a>
                                 <?php endif;?>
@@ -885,10 +887,11 @@
 <?php
 $filename = $_SERVER["DOCUMENT_ROOT"]. '/js/template/' . $view . '.php';
 if (file_exists($filename) > 0){  require_once "$filename"; }
-
 //Обновляем токен
 //if(isset($_SESSION['csrf_token'])){unset($_SESSION['csrf_token']);}
 ?>
+<script src="/js/main.js"></script>
+
 <!-- end scripts -->
 </body>
 </html>

@@ -13,7 +13,7 @@ class Db
         if(!\R::testConnection()){
             throw new \Exception('no connect with db');
         }else{
-            echo 'connect true';
+            //echo 'connect true';
         }
         \R::freeze(true);
         if(DEBUG){
