@@ -48,6 +48,7 @@
         <script src="/js/jquery.the-modal.js"></script>
     </head>
 <body>
+<?php $curr = \ishop\App::$app->getProperty('currency'); debug($curr);?>
 <!-- header -->
 <div class="embraceFull">
     <div class="headerBox clear">
@@ -277,7 +278,12 @@
                         <div class="catList">
                             <?=$category_menu?>
                         </div>
-
+                        <div class="catList2 ">
+                            <?php new \app\widgets\menu\Menu([
+                                'tpl'=> WWW . '/menu/menu.php',
+                                 'table'=>'test',
+                            ])?>
+                        </div>
                     </div>
                     <!-- mobile products list end -->
                 </div>
