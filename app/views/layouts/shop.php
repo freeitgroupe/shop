@@ -276,12 +276,9 @@
                             <div class="toggleButton childOn">Show child</div>
                         </div>
                         <div class="catList">
-                            <?=$category_menu?>
-                        </div>
-                        <div class="catList2 ">
                             <?php new \app\widgets\menu\Menu([
                                 'tpl'=> WWW . '/menu/menu.php',
-                                 'table'=>'test',
+                                'table'=>'category',
                             ])?>
                         </div>
                     </div>

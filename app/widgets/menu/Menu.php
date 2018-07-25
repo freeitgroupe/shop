@@ -3,6 +3,7 @@
 namespace app\widgets\menu;
 
 
+use ishop\App;
 use ishop\Cache;
 
 class Menu
@@ -22,7 +23,6 @@ class Menu
     {
         $this->tpl = __DIR__ . '/menu_tpl/menu.php';
         $this->getOptions($options);
-        debug($this->table);
         $this->run();
     }
 
@@ -42,8 +42,18 @@ class Menu
         $cache = Cache::instance();
         $this->menuHtml = $cache->get($this->cacheKey);
         if(!$this->menuHtml){
+            $this->data = App::$app->getProperty('cats');
+            if(!$this->data){
+                $this->data = \R::getAssoc("SELECT * FROM {$this->table} WHERE  `view` = '1'");
+            }
+            $this->tree = $this->getTree();
+            $this->menuHtml = $this->getMenuHtml($this->tree);
+            /*if($this->cache){
+                $cache->set($this->cacheKey, $this->menuHtml, $this->cache);
+            }*/
 
         }
+        //debug($this->tree);
         $this->output();
 
     }
@@ -51,4 +61,43 @@ class Menu
     protected function output(){
         echo $this->menuHtml;
     }
+
+    //для формирования дерева категорий
+    protected function getTree(){
+        $tree = [];
+        $data = $this->data;
+        foreach ($data as $id=>&$node){
+            if(!$node['parent']){
+                $tree[$id] = &$node;
+            }else{
+                $data[$node['parent']]['childs'][$id] = &$node;
+            }
+        }
+        return $tree;
+    }
+
+    //для получения html кода
+    protected function getMenuHtml($tree, $tab = '', $tpl= ''){
+        $str = '';
+        foreach ($tree as $id=>$category){
+            $str .= $this->catToTemplate($category, $tab, $id, $tpl);
+        }
+        return $str;
+
+    }
+
+    //для формрования кода в шаблон
+    protected function catToTemplate($category, $tab, $id, $tpl){
+        ob_start();
+        if($tpl){
+            $this->tpl = $tpl;
+        }
+        if(!isset($category['childs']) && $category['parent'] == 0){
+            $this->tpl = WWW . '/menu/menu.php';
+        }
+        require $this->tpl;
+        return ob_get_clean();
+    }
+
+
 }
