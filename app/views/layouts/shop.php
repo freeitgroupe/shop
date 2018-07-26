@@ -48,7 +48,7 @@
         <script src="/js/jquery.the-modal.js"></script>
     </head>
 <body>
-<?php $curr = \ishop\App::$app->getProperty('currency'); debug($curr);?>
+<?php $curr = \ishop\App::$app->getProperty('currency');?>
 <!-- header -->
 <div class="embraceFull">
     <div class="headerBox clear">
@@ -278,7 +278,10 @@
                         <div class="catList">
                             <?php new \app\widgets\menu\Menu([
                                 'tpl'=> WWW . '/menu/menu.php',
-                                'table'=>'category',
+                                'attrs'=>[
+                                    'data'=>'generalMenu',
+                                    'id'=>'IdforGeneralMenu'
+                                ],
                             ])?>
                         </div>
                     </div>

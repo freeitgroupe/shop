@@ -12,7 +12,7 @@ class Menu
     protected $tree;
     protected $menuHtml;
     protected $tpl;
-    protected $container = 'ul';
+    protected $container = 'div';
     protected $table = 'category';
     protected $cache = 3600;
     protected $cacheKey = 'ishop_menu';
@@ -59,7 +59,15 @@ class Menu
     }
 
     protected function output(){
+        $attrs = '';
+        if(!empty($this->attrs)){
+            foreach ($this->attrs as $k=>$v){
+                $attrs .= " $k='$v' ";
+            }
+        }
+        echo "<{$this->container} $attrs>";
         echo $this->menuHtml;
+        echo "</{$this->container}>";
     }
 
     //для формирования дерева категорий
