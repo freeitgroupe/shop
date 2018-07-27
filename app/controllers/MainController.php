@@ -11,8 +11,12 @@ class MainController extends AppController
 
         $this->setMeta(App::$app->getProperty('shop_name'), 'description', 'keywords');
         $primary_category = \R::find('category', "parent = 0 AND view = '1' ");
-        $this->set(compact('primary_category'));
+        $ProductsHomePage = \R::find('products', "`mark_view` = '1' ORDER BY page_views DESC LIMIT 4");
+        $this->setMeta('Главная страница', 'Описание...', 'Ключевики...');
+        $this->set(compact('primary_category', 'ProductsHomePage'));
         //debug($primary_category);
+
+
         /*$name = 'John';
         $posts = \R::findAll('test');
         $post = \R::find('test', 'id = ?', [2]);

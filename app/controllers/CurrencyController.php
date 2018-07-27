@@ -21,5 +21,4 @@ class CurrencyController extends AppController
         }
         redirect();
     }
-
 }

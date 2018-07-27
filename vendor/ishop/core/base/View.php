@@ -22,8 +22,8 @@ class View
         $this->view = $view;
         $this->prefix = $route['prefix'];
         $this->meta = $meta;
-        if($layout === false){
-            $this->layout = false;
+        if($layout === FALSE){
+            $this->layout = FALSE;
         }else{
             $this->layout = $layout ?: LAYOUT;
         }
@@ -31,17 +31,19 @@ class View
 
     public function render($data)
     {
-       //var_dump($data);
+       //debug($this->view);
         if(is_array($data)) extract($data);
        $viewFile = APP . "/views/{$this->prefix}{$this->controller}/{$this->view}.php";
+       //debug();
        if(is_file($viewFile)){
             ob_start();
             require_once $viewFile;
+            //View for controller
             $content = ob_get_clean();
        }else{
            throw new \Exception("Not found view {$viewFile}", 500);
        }
-       if(false !== $this->layout){
+       if(FALSE !== $this->layout){
            $layoutFile = APP . "/views/layouts/{$this->layout}.php";
            if(is_file($layoutFile)){
                require_once $layoutFile;

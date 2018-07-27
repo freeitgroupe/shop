@@ -3,7 +3,8 @@
 use ishop\Router;
 
 //use router
-Router::add('^product/(?P<alias>[a-z0-9-_]+)/?$',['controller'=>'Product', 'action'=>'view']);
+Router::add('^product/(?P<alias>[a-z0-9-]+)/?$',['controller' => 'Product', 'action' => 'view']);
+
 
 //default routes for backend
 Router::add('^admin$', ['controller'=>'Main', 'action'=>'index', 'prefix'=>'admin']);

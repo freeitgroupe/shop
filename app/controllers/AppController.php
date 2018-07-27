@@ -35,6 +35,5 @@ class AppController extends Controller
             $cache->set('cats', $cats);
         }
         return $cats;
-
     }
 }
