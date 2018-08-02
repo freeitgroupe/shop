@@ -12,6 +12,7 @@ abstract  class Controller
     public $prefix;
     public $layout;
     public $data = [];
+    public $paramForJsFile = [];
     public $meta = ['title'=>'', 'desc'=>'', 'keywords'=>''];
 
     public function __construct($route)

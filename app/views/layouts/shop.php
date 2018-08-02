@@ -4,7 +4,7 @@
         <meta http-equiv="content-type" content="text/plain; charset=utf-8" />
         <meta name="csrf-token" content="">
         <!--title-->
-        <title></title>
+        <?=$this->getMeta();?>
         <!--twitter header-->
         <meta name="google-site-verification" content=""/>
         <meta name="twitter:card" content="summary" />
@@ -414,7 +414,6 @@
         </div>
     </div>
 </div>
-
 
 <!-- responsive and menu elemants -->
 <!-- scripts -->

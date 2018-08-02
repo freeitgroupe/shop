@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: admin
- * Date: 23.06.2018
- * Time: 12:34
- */
-
 namespace ishop;
 
 
@@ -48,13 +41,15 @@ class Router
                 throw new \Exception('Controller ' . $controller . 'not found', 404);
             }
         }else{
-           throw new \Exception('Page not found', 404);
+           //throw new \Exception('Page not found', 404);
         }
     }
 
     public static function matchRoute($url)
     {
         foreach (self::$routes as $pattern=>$route) {
+            //debug($url);
+            //debug($route);
             if (preg_match("#{$pattern}#", $url, $matches)) {
                 //debug($matches);
                 foreach ($matches as $k=>$v){
@@ -72,8 +67,6 @@ class Router
                 }
                 $route['controller'] = self::upperCamelCase($route['controller']);
                 self::$route = $route;
-                //debug(self::$route);
-
                 return true;
             }
         }

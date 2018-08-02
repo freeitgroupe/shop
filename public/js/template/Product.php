@@ -1,6 +1,4 @@
-<?php //галлерея фото для продукта ?>
-<?php //если есть галерея ?>
-<?php if(isset($get_one_product['gallery_image']) && $get_one_product['gallery_image'] > ''):?>
+<?php //галлерея фото для продукта ?><?php //если есть галерея ?>
 <script>
     $(document).ready(function(){
         function htmSlider(){
@@ -49,7 +47,6 @@
 
     });
 </script>
-<?php endif;?>
 
 <script>
     function processRating(val, attrVal){

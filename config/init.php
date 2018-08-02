@@ -20,6 +20,7 @@ define("PATH", $app_path);
 define("ADMIN", PATH . '/admin');
 define("CAT_IMG",PATH . '/uploads_images/category/baseimg/');
 define("PROD_IMG",PATH . '/uploads_images/product/baseimg/');
+define("GALLERY_IMG",PATH . '/uploads_images/product/thumbs/');
 
 //echo __DIR__;
 require_once ROOT . '/vendor/autoload.php';

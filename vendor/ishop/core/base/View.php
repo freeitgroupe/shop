@@ -13,6 +13,7 @@ class View
     public $layout;
     public $data = [];
     public $meta = [];
+    public $paramForJsFile = [];
 
     public function __construct($route, $layout= '', $view='', $meta)
     {
@@ -32,7 +33,7 @@ class View
     public function render($data)
     {
        //debug($this->view);
-        if(is_array($data)) extract($data);
+       if(is_array($data)) extract($data);
        $viewFile = APP . "/views/{$this->prefix}{$this->controller}/{$this->view}.php";
        //debug();
        if(is_file($viewFile)){
@@ -43,6 +44,7 @@ class View
        }else{
            throw new \Exception("Not found view {$viewFile}", 500);
        }
+        //debug($resOtherTemplate);
        if(FALSE !== $this->layout){
            $layoutFile = APP . "/views/layouts/{$this->layout}.php";
            if(is_file($layoutFile)){
