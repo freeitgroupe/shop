@@ -1,10 +1,10 @@
 <div class="emraceFull">
     <div class="embrace clear singlePage">
         <div class="breadCrumbs clear">
-            <?php //$breadcrumbs?>
+            <?=$breadcrumbs?>
             <?php
             $cats = \ishop\App::$app->getProperty('cats');
-            debug($cats);
+            //debug($cats);
             ?>
         </div>
         <section class="singleBox clear">
@@ -154,7 +154,7 @@
                 </div>
             </div>
         <? endif; ?>
-        <?php if($get_related_additions):?>
+        <?php if($relatedProducts):?>
             <!-- Similar products -->
             <div class="SimilarProducts clear">
                 <div class="similarIndex clear">
@@ -162,7 +162,7 @@
                         <h3 class="stipeHeading">Similar products</h3>
                     </div>
                     <div class="choiceLoop clear">
-                        <?php foreach ($get_related_additions as $item):?>
+                        <?php foreach ($relatedProducts as $item):?>
                             <!-- single product -->
                             <div class="singleProduct clear">
                                 <a href="<?=$item['alias']?>">
@@ -198,7 +198,7 @@
             </div>
             <!-- Similar products end-->
         <?php endif; ?>
-        <?php if(isset($get_watch_list) and $get_watch_list > false):?>
+        <?php if(isset($recentlyViewed) and $recentlyViewed > null):?>
             <!-- Watchlist -->
             <div class="watchList">
                 <div class="watchIndex clear">
@@ -207,7 +207,7 @@
                         <div class="refreashBox"></div>
                     </div>
                     <div class="choiceLoop clear">
-                        <?php foreach($get_watch_list as $item):?>
+                        <?php foreach($recentlyViewed as $item):?>
                             <!-- single product -->
                             <div class="singleProduct clear">
                                 <div class="hrefBox">

@@ -46,6 +46,104 @@
         <script src='https://www.google.com/recaptcha/api.js'></script>
         <script src="/js/jquery.md5.js"></script>
         <script src="/js/jquery.the-modal.js"></script>
+        <style>
+            .img-list{
+                max-width: 70px;
+                display: inline-block;
+                vertical-align: middle;
+            }
+            a{
+                text-decoration: none;
+            }
+            .block-input{
+                margin-top: 10px;
+
+            }
+            .block-input span{
+                display: inline-block;
+                vertical-align: middle;
+            }
+            .block-input input{
+                display: inline-block;
+                vertical-align: middle;
+                margin: 0;
+                padding: 0;
+            }
+            .product_rating_widget{
+                padding: 0px;
+                margin: 0px;
+            }
+            .overall-rating{
+                font-size: 12px;
+            }
+            .product_rating_widget li{
+                line-height: 0px;
+                width: 22px;
+                height: 22px;
+                padding: 0px;
+                margin: 0px;
+                margin-left: 2px;
+                list-style: none;
+                float: left;
+                cursor: pointer;
+            }
+            .product_rating_widget li span{
+                display: none;
+            }
+
+            .rating-prod{
+                display: inline-block;
+                margin: 0 10px;
+                vertical-align: middle;
+            }
+
+            .prev_img{
+                height: 100px;
+                width: 100px;
+                margin: 5px 5px 5px 0;
+                padding: 2px;
+                border: 1px solid silver;
+            }
+
+            .gallery-block{
+                display: inline-block;
+                position: relative;
+                width: 150px;
+                height: 150px;
+                overflow:hidden;
+                margin: 5px 5px 5px 0;
+                padding: 2px;
+
+            }
+            .filter-order{
+                display: inline-block;
+            }
+            .all_view_comments{
+                cursor: pointer;
+            }
+            .table-suppliers{
+                display: none;
+            }
+            .view-all-suppliers{
+                cursor: pointer;
+            }
+
+            .suppliersProductSelect{
+                background-color: rgb(238, 238, 238);
+                border: medium none;
+                border-radius: 4px 0 0 4px;
+                color: rgb(136, 153, 153);
+                height: 34px;
+                left: 0;
+                line-height: 13px;
+                outline: medium none;
+                padding: 8px 15px;
+                width: 137px;
+            }
+            .modal_choice_sup{
+                text-align: center;
+            }
+        </style>
     </head>
 <body>
 <?php $curr = \ishop\App::$app->getProperty('currency');?>
@@ -343,7 +441,12 @@
         </div>
     </div>
 </footer>
-
+<?php
+$logs = \R::getDatabaseAdapter()
+    ->getDatabase()
+    ->getLogger();
+debug($logs->grep('SELECT'));
+?>
 <div class="modal" id="modal-edit-name" style="display: none">
     <form action="" method="post" id="form_edit_wishlist" class="uInfo">
         <div class="col-md-12 form-group">
@@ -793,7 +896,7 @@
     }
 </script>
 <?php
-$filename = $_SERVER["DOCUMENT_ROOT"]. '/js/template/' . $view . '.php';
+$filename = WWW . '/js/template/' . \ishop\Router::getRoute()['controller'] . '.php';
 if (file_exists($filename) > 0){  require_once "$filename"; }
 //Обновляем токен
 //if(isset($_SESSION['csrf_token'])){unset($_SESSION['csrf_token']);}

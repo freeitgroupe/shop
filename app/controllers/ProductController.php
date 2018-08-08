@@ -2,6 +2,7 @@
 namespace app\controllers;
 
 
+use app\models\Breadcrumbs;
 use app\models\Product;
 
 class ProductController extends AppController
@@ -19,7 +20,6 @@ class ProductController extends AppController
         $sql = 'SELECT rating_number, rating_id as id, FORMAT((total_points / rating_number),1) as average_rating FROM prod_rating WHERE product_id =' . $id . ' AND status = 1 ';
         $rows = \R::getAll($sql);
         $resProductRating = \R::convertToBeans('prod_rating',$rows);
-
         $product_rating = [];
         if(count($resProductRating) >= 1){
             foreach ($resProductRating as $v){
@@ -32,15 +32,23 @@ class ProductController extends AppController
         }
 
         //хлебные крошки
+        $breadcrumbs = Breadcrumbs::getBreadcrumbs($get_one_product->category_id, $get_one_product->title);
 
         //связанные товары
+        $relatedProducts = \R::getAll("SELECT `additions_products`.*,`products`.id, `products`.alias, `products`.title, `products`.image, `products`.price, `products`.stock_id,`products`.upsell_product   FROM `additions_products` INNER JOIN `products` ON `additions_products`.related_additions_id = `products`.id WHERE `products`.mark_view = '1' AND `additions_products`.product_id = ? LIMIT 4", [$get_one_product->id]);
+
 
         //запись в куки запрошенного товара
         $pModel = new Product();
         $pModel->setRecentlyViewed($get_one_product->id);
 
-
-        //просмотренные товары
+        //просмотренные товары из кук
+        $rViewed = $pModel->getRecentlyViewed();
+        $recentlyViewed = null;
+        if($rViewed){
+            $recentlyViewed = \R::find('products', 'id IN (' . \R::genSlots($rViewed) .') LIMIT 4', $rViewed);
+        }
+        //debug($recentlyViewed);
 
         //галерея
 
@@ -49,7 +57,7 @@ class ProductController extends AppController
 
 
         $this->setMeta($get_one_product->title, $get_one_product->meta_d, $get_one_product->meta_k);
-        $this->set(compact('get_one_product', 'product_rating'));
+        $this->set(compact('get_one_product', 'product_rating', 'recentlyViewed', 'breadcrumbs'));
 
 
         //debug($this->content);

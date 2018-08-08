@@ -23,13 +23,17 @@ class Product extends AppModel
                $recentlyViewed = implode('.', $recentlyViewed);
                setcookie('recentlyViewed', $recentlyViewed, time() + 3600 * 24, '/');
            }
-           //debug($recentlyViewed);
        }
     }
 
     //достаем из кук определеннное кол. товара
     public function getRecentlyViewed(){
-
+        if(!empty($_COOKIE['recentlyViewed'])){
+            $recentlyViewed = $_COOKIE['recentlyViewed'];
+            $recentlyViewed = explode('.', $recentlyViewed);
+            return array_slice($recentlyViewed, -4);
+        }
+        return false;
     }
 
     //достаем все просмотренные товары из кук
