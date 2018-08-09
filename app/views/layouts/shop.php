@@ -1,6 +1,7 @@
     <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
     <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml" itemscope="" itemtype="http://schema.org/WebPage">
     <head>
+        <base href="/">
         <meta http-equiv="content-type" content="text/plain; charset=utf-8" />
         <meta name="csrf-token" content="">
         <!--title-->
@@ -390,23 +391,7 @@
     </div>
 </div>
 <!-- header end -->
-    <!-- slider -->
-    <!--<div class="embraceFull">-->
-    <!--    --><?php ////require_once "slider_container.php"?>
-    <!--    <div class="slider box"></div>-->
-    <!--</div>-->
-    <div class="embraceFull clear indexVideo">
-        <div class="embrace indexVideoBox clear">
-            <div class="videoSplitter clear">
-                <video controls="controls" height="267" poster="video/del.jpg" width="400"><source avc1.42e01e="" src="http://zupplybox.com/video/zupply.mp4" type="video/mp4; codecs=" /> Тег video не поддерживается вашим браузером. Обновитесь. <a href="../video/duel.mp4">Скачайте видео</a>.</video>
-            </div>
-            <div class="videoSplitter clear">
-                <h2 class="wellCome">Welcome.</h2>
-                <a class="button" href="/registration">Create account</a>
-            </div>
-        </div>
-    </div>
-    <!-- slider end -->
+
     <?=$content?>
 
 <footer class="emraceFull">

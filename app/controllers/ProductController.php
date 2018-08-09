@@ -57,7 +57,7 @@ class ProductController extends AppController
 
 
         $this->setMeta($get_one_product->title, $get_one_product->meta_d, $get_one_product->meta_k);
-        $this->set(compact('get_one_product', 'product_rating', 'recentlyViewed', 'breadcrumbs'));
+        $this->set(compact('get_one_product', 'product_rating', 'recentlyViewed', 'breadcrumbs','relatedProducts'));
 
 
         //debug($this->content);

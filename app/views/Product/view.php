@@ -83,7 +83,11 @@
                     <?php endif?>
                     <div class="proBuy">
                         <div class="bookmark shoppingPopupWindow favButton right" data-product="<?=$get_one_product['id']?>">2</div>
-                        <input data-product="<?=$get_one_product['id']?>" data-price="<?=$get_one_product['price']?>" type="button" class="addToCart button-add" value="Add to cart">
+<!--                        <input data-product="--><?//=$get_one_product['id']?><!--" data-price="--><?//=$get_one_product['price']?><!--" type="button" class="addToCart button-add" value="Add to cart">-->
+                        <a href="cart/add?id=<?=$get_one_product['id']?>" id="productAdd" class="addToCart button-add" data-id="<?=$get_one_product['id']?>">Add to cart</a>
+                    </div>
+                    <div class="quantity">
+                        <input type="number" size="4" value="1" name="quantity" min="1" step="1">
                     </div>
                 </div>
                 <?php if(isset($get_stock_info)):?>
