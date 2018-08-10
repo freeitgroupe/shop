@@ -1,12 +1,8 @@
-<!-- slider -->
-<!--<div class="embraceFull">-->
-<!--    --><?php ////require_once "slider_container.php"?>
-<!--    <div class="slider box"></div>-->
-<!--</div>-->
+
 <div class="embraceFull clear indexVideo">
     <div class="embrace indexVideoBox clear">
         <div class="videoSplitter clear">
-            <video controls="controls" height="267" poster="video/del.jpg" width="400"><source avc1.42e01e="" src="http://zupplybox.com/video/zupply.mp4" type="video/mp4; codecs=" /> Тег video не поддерживается вашим браузером. Обновитесь. <a href="../video/duel.mp4">Скачайте видео</a>.</video>
+            <video controls="controls" height="267" poster="video/del.jpg" width="400"><source avc1.42e01e="" src="http://zupplybox.com/video/zupply.mp4" type="video/mp4; codecs=" /> The video tag is not supported by your browser. Update please.. <a href="../video/duel.mp4">Download the video.</a>.</video>
         </div>
         <div class="videoSplitter clear">
             <h2 class="wellCome">Welcome.</h2>
@@ -16,6 +12,7 @@
 </div>
 <!-- slider end -->
 <!-- main page content -->
+
 <!-- categories box -->
 <div class="embraceFull">
     <div class="embrace clear categoriesIndex">
@@ -32,6 +29,7 @@
     </div>
 </div>
 <!-- categories box end -->
+
 <div class="emraceFull">
     <div class="embrace clear indexPage">
         <!-- choice if the day -->
