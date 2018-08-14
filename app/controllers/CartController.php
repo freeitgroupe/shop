@@ -17,9 +17,8 @@ class CartController extends AppController
         $ipAddress = $_SERVER['REMOTE_ADDR'];
         //$sup = !empty($_GET['sup']) ? (int)$_GET['sup'] : null;
         $sup = false;
-
         if($id){
-            $product = \R::findOne('products', 'id = ? AND mark_view = ?', [$id, 1]);
+            $product = \R::findOne('products', 'id = ? AND mark_view = ?', [$id, '1']);
             if(!$product) return false;
         }
         $cart = new Cart();
@@ -29,9 +28,6 @@ class CartController extends AppController
         }else{
             redirect();
         }
-
-
-        //die();
-
+        die();
     }
 }

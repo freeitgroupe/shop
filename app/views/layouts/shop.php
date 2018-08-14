@@ -148,6 +148,7 @@
     </head>
 <body>
 <?php $curr = \ishop\App::$app->getProperty('currency');?>
+<?php //session_destroy();?>
 <!-- header -->
 <div class="embraceFull">
     <div class="headerBox clear">
@@ -257,17 +258,17 @@
                                 <?php endif;?>
                             </div>
                         </div>
-                        <!--                        <span class="wishList-block" id="shoppingWishList">-->
+                        <!--  <span class="wishList-block" id="shoppingWishList">-->
                         <!--                            wishList-->
                         <!--                            <a href="#" class="summWishProd">0</a>-->
-                        <!--                        </span>-->
+                        <!--  </span>-->
                         <!-- opened cart minibox -->
                         <div class="miniCart" id="miniCart">
                             <div class="miniCartBox clear">
                                 <div class="closeCart fill">W</div>
                                 <div class="miniList">
                                     <ul class="cart-info">
-                                        <li class="cart-info-li"></li>
+
                                     </ul>
                                 </div>
                                 <div class="miniInfo">

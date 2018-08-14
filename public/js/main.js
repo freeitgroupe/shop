@@ -9,7 +9,8 @@ $('body').on('click', '.button-add', function (e) {
            data: {id: id, qty: qty, sup: sup},
            type: 'GET',
            success: function (res) {
-               showCart(res);
+               addHtmlToCart(res);
+
            },
            error: function () {
                alert('Error! Try again later.');
@@ -17,8 +18,9 @@ $('body').on('click', '.button-add', function (e) {
         });
 });
 
-function showCart(cart){
-    console.log(cart);
+function addHtmlToCart(cart){
+    $('.cart-info').html(cart);
+    $('.miniCart').fadeIn(800);
 }
 /*Cart*/
 $('#currency').change(function(){
