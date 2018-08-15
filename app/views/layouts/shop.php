@@ -148,7 +148,8 @@
     </head>
 <body>
 <?php $curr = \ishop\App::$app->getProperty('currency');?>
-<?php //session_destroy();?>
+<?php session_destroy();?>
+<?php //debug($_SESSION);?>
 <!-- header -->
 <div class="embraceFull">
     <div class="headerBox clear">
@@ -163,9 +164,9 @@
                             <?php if(isset($pages['header'])):?>
                                 <ul id="listBox clear">
                                     <li>
-                                        <?php foreach ($pages['header'] as $v):?>
-                                            <a href="<?='/page/'.$v['alias']?>"><?=$v['title']?></a>
-                                        <?php endforeach;?>
+                                    <?php foreach ($pages['header'] as $v):?>
+                                        <a href="<?='/page/'.$v['alias']?>"><?=$v['title']?></a>
+                                    <?php endforeach;?>
                                     </li>
                                 </ul>
                             <?php else:?>
@@ -239,11 +240,16 @@
                         </form>
                     </div>
                     <div class="cartBox clear right">
-                        <div class="cartZone right" id="cart">
+                        <div class="cartZone right" id="cart" onclick="getCart(); return false;">
                             <img src="/images/box.svg" alt="Shopping box" id="shoppingBox">
                             <div class="cartCount" id="shoppingCounter">
-                                <a href="#" class="cart-count">0</a> products<br />
-                                <a href="#" class="summ-cart"></a>
+                                <?php if(isset($_SESSION['cart']) && !empty($_SESSION['cart']) ):?>
+<!--                                <a href="#" class="cart-count">--><?//=$_SESSION['cart.qty']?><!--</a>-->
+                                    <a href="#" class="summ-cart"><?=$_SESSION['cart.sum'] . $_SESSION['cart.currency']['symbol_left']?></a>
+                                <?php else:?>
+                                    <a href="#" class="cart-count">Empty cart</a>
+                                <?php endif;?>
+
                             </div>
                         </div>
 
@@ -267,9 +273,7 @@
                             <div class="miniCartBox clear">
                                 <div class="closeCart fill">W</div>
                                 <div class="miniList">
-                                    <ul class="cart-info">
-
-                                    </ul>
+                                    <ul class="cart-info"></ul>
                                 </div>
                                 <div class="miniInfo">
                                     <div class="minOrder">
@@ -280,6 +284,10 @@
                                         <div class="wishList" id="shoppingWishList">a</div>
                                         <div class="checkOut">
                                             <a href='/cart' id="checkOut">Checkout</a>
+                                        </div>
+                                        <div class="checkOut">
+                                            <a href='/cart' id="checkOut">Total</a>
+                                            <a href='/cart' id="checkOutTotal"></a>
                                         </div>
                                     </div>
                                 </div>

@@ -113,7 +113,7 @@ h1,h2,h3,h4,h5,h6{font-family: 'Noto Sans', sans-serif;}
 .miniCart, .miniPopap, .miniWish {background-color: rgb(246, 246, 246); bottom: 0; box-shadow: 0 0 12px rgba(0, 0, 0, 0.4); display: none; min-width: 190px; padding: 20px; position: fixed; right: 0; top: 0; z-index: 9999; }
 .miniList {border-bottom: 1px dashed rgb(204, 204, 204); bottom: 115px; overflow-y: auto; padding-right: 10px; position: fixed; right: 20px; top: 85px; width: 180px; }
 .miniList li {border-bottom: 1px solid rgb(221, 221, 221); display: block; line-height: 15px; list-style: outside none none; margin-bottom: 5px; padding: 0 0 10px; }
-.miniList a {color: rgb(85, 85, 85); display: inline-block; font-size: 13px; line-height: 14px; }
+.miniList a {color: rgb(85, 85, 85); display: inline-block; font-size: 13px; line-height: 14px;text-transform: uppercase;}
 .miniList a:hover {color: rgb(115, 81, 187); }
 .deleteItem {color: rgb(232, 76, 61); cursor: pointer; float: right; font-family: box; font-size: 14px; line-height: 22px; }
 .closeCart, .closeWish, .closePopup {border-radius: 3px; color: rgb(255, 255, 255); cursor: pointer; font-family: box; font-size: 33px; line-height: 34px; margin-bottom: 20px; padding: 5px 0; text-align: center; }

@@ -70,7 +70,7 @@
                                 </div>
                             </div>
                             <div class="productFooter clear">
-                                <input data-product="<?=$item['id']?>" data-price="<?=$item['price']?>" type="button" class="addToCart button-add" value="Add to cart">
+                                <a href="cart/add?id=<?=$item['id']?>" id="productAdd" class="addToCart button-add" data-id="<?=$item['id']?>">Add to cart</a>
                             </div>
                         </div>
                         <!-- single product end -->
