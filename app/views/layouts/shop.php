@@ -148,7 +148,7 @@
     </head>
 <body>
 <?php $curr = \ishop\App::$app->getProperty('currency');?>
-<?php session_destroy();?>
+<?php //session_destroy();?>
 <?php //debug($_SESSION);?>
 <!-- header -->
 <div class="embraceFull">
@@ -245,11 +245,10 @@
                             <div class="cartCount" id="shoppingCounter">
                                 <?php if(isset($_SESSION['cart']) && !empty($_SESSION['cart']) ):?>
 <!--                                <a href="#" class="cart-count">--><?//=$_SESSION['cart.qty']?><!--</a>-->
-                                    <a href="#" class="summ-cart"><?=$_SESSION['cart.sum'] . $_SESSION['cart.currency']['symbol_left']?></a>
+                                    <a href="#" class="summ-cart"><?=$_SESSION['cart.sum'] .' '. $_SESSION['cart.currency']['symbol_left']?></a>
                                 <?php else:?>
-                                    <a href="#" class="cart-count">Empty cart</a>
+                                    <a href="#" class="summ-cart">Cart is empty!</a>
                                 <?php endif;?>
-
                             </div>
                         </div>
 
@@ -285,12 +284,9 @@
                                         <div class="checkOut">
                                             <a href='/cart' id="checkOut">Checkout</a>
                                         </div>
-                                        <div class="checkOut">
-                                            <a href='/cart' id="checkOut">Total</a>
-                                            <a href='/cart' id="checkOutTotal"></a>
-                                        </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                         <!-- /opened cart minibox -->
@@ -322,7 +318,6 @@
                         <div class="miniPopap">
                             <div class="miniCartBox clear">
                                 <div class="closePopup fill">W</div>
-
                                 <div class="miniList">
                                     <?php //если пользователь авторизован?>
                                     <?php if(isset($_SESSION['auth'])):?>
@@ -371,7 +366,6 @@
                                         <p>To add a product to the wish list, please</p> <a href="/login"> login </a>
                                     <?php endif;?>
                                 </div>
-
                             </div>
                         </div>
                         <!-- /opened cart minibox -->

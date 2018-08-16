@@ -65,13 +65,13 @@ h1,h2,h3,h4,h5,h6{font-family: 'Noto Sans', sans-serif;}
 .warhouseLink {border-bottom: 1px dashed; color: rgb(29, 166, 184); font-size: 12px; font-weight: normal; text-decoration: none; }
 .warhouseBox p {color: rgb(52, 52, 52); font-size: 12px; padding: 0 0 3px; } .bottomHeader {margin-top: 20px; padding: 15px; position: relative; }
 .cartZone {background-color: rgb(238, 238, 240); border-radius: 4px; cursor: pointer; margin: 7px 0 0; padding: 4px 15px; position: relative; width: 150px; }
-.cartZone img, .pofileLink img {display: block; float: left; height: auto; width: 24%; }
+.cartZone img, .pofileLink img {display: inline-block; height: auto; width: 24%;vertical-align: middle }
 .profileBox {background-color: rgb(238, 238, 240); border-radius: 4px; color: rgb(0, 0, 4); font-size: 13px; line-height: 18px; margin: 5px 0 0; padding: 5px 15px; }
 .pofileLink {color: rgb(68, 68, 68); margin: 2px 10px 0 0; width: auto; }
 .pofileLink:hover{-webkit-transition: .2s all; -o-transition: .2s all; transition: .2s all; -webkit-transform: scale(1.20); -ms-transform: scale(1.20); -o-transform: scale(1.20); transform: scale(1.20); }
 .cartZone:hover {-webkit-transition: .2s all; -o-transition: .2s all; transition: .2s all; -webkit-transform: scale(1.20); -ms-transform: scale(1.20); -o-transform: scale(1.20); transform: scale(1.20); }
 .pofileLink:not(hover), .cartZone:not(hover){-webkit-transition: .3s all; -o-transition: .3s all; transition: .3s all; }
-.cartCount {border-radius: 4px; color: rgb(0, 0, 4); float: left; font-family: Noto Sans; font-size: 13px; line-height: 18px; margin-left: 8px; padding: 1px 5px; top: -6px; width: 63%; }
+.cartCount {border-radius: 4px; color: rgb(0, 0, 4); font-family: Noto Sans; font-size: 13px;top:-6px; display: inline-block; vertical-align: middle; text-align: center; width: 70%;}
 .searchForm {padding: 6px 0 0; position: relative; }
 .searchText {border: 1px solid rgb(238, 238, 238); line-height: 13px; height: 34px; margin: 0 34px 0 137px; padding: 10px 15px; }
 .searchForm select {background-color: rgb(238, 238, 238); border: medium none; border-radius: 4px 0 0 4px; color: rgb(136, 153, 153); height: 34px; left: 0; line-height: 13px; outline: medium none; padding: 8px 15px; position: absolute; width: 137px; }
@@ -113,9 +113,9 @@ h1,h2,h3,h4,h5,h6{font-family: 'Noto Sans', sans-serif;}
 .miniCart, .miniPopap, .miniWish {background-color: rgb(246, 246, 246); bottom: 0; box-shadow: 0 0 12px rgba(0, 0, 0, 0.4); display: none; min-width: 190px; padding: 20px; position: fixed; right: 0; top: 0; z-index: 9999; }
 .miniList {border-bottom: 1px dashed rgb(204, 204, 204); bottom: 115px; overflow-y: auto; padding-right: 10px; position: fixed; right: 20px; top: 85px; width: 180px; }
 .miniList li {border-bottom: 1px solid rgb(221, 221, 221); display: block; line-height: 15px; list-style: outside none none; margin-bottom: 5px; padding: 0 0 10px; }
-.miniList a {color: rgb(85, 85, 85); display: inline-block; font-size: 13px; line-height: 14px;text-transform: uppercase;}
+.miniList a {color: rgb(85, 85, 85); display: inline-block; font-size: 13px; line-height: 14px;text-transform: uppercase;width: 90%;vertical-align: middle;}
 .miniList a:hover {color: rgb(115, 81, 187); }
-.deleteItem {color: rgb(232, 76, 61); cursor: pointer; float: right; font-family: box; font-size: 14px; line-height: 22px; }
+.deleteItem {color: rgb(232, 76, 61); cursor: pointer; font-family: box; font-size: 14px; line-height: 22px;width:9%;vertical-align: middle;}
 .closeCart, .closeWish, .closePopup {border-radius: 3px; color: rgb(255, 255, 255); cursor: pointer; font-family: box; font-size: 33px; line-height: 34px; margin-bottom: 20px; padding: 5px 0; text-align: center; }
 .closeCart:hover,.closeWish:hover, .closePopup:hover {background: rgb(115,81,187); }
 .miniInfo {background-color: rgb(246, 246, 246); border-top: 1px solid rgb(221, 221, 221); bottom: 0; left: 0; padding: 20px; position: absolute; right: 0; }
@@ -299,6 +299,7 @@ footer {
     padding: 15px 20px 15px 30px;
     background-color: #f6f6f6;
     border-radius: 4px;
+    text-transform: uppercase;
 }
 .breadCrumbs a:first-child {padding-left: 0; }
 .breadCrumbs a {

@@ -20,10 +20,10 @@ $('body').on('click', '.button-add', function (e) {
 function addHtmlToCart(cart){
     $('.cart-info').html(cart);
     $('.miniCart').fadeIn(800);
-    if($('#sumCartAll').value()){
-        $('.summ-cart').html($('#sumCartAll').value());
+    if($('#sumCartAll').val()){
+        $('.summ-cart').html($('#sumCartAll').val());
     }else{
-        $('.summ-cart').text('Empty cart');
+        $('.summ-cart').text('Cart is empty!');
     }
     //$('.simpleCart_total').html()
 }
@@ -40,6 +40,34 @@ function getCart() {
         }
     });
 }
+
+function clearCart() {
+    $.ajax({
+        url: '/cart/clear',
+        type: 'GET',
+        success: function (res) {
+            addHtmlToCart(res);
+        },
+        error: function () {
+            alert('Error! Try again later.');
+        }
+    });
+}
+
+$('#miniCart .miniList').on('click', '.deleteItem', function () {
+    var id = $(this).data('product');
+    $.ajax({
+        url: '/cart/delete',
+        data: {id: id},
+        type: 'GET',
+        success: function (res) {
+            addHtmlToCart(res);
+        },
+        error: function () {
+            alert('Error! Try again later.');
+        }
+    });
+});
 
 /*Cart*/
 $('#currency').change(function(){
