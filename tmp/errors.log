@@ -60,3 +60,13 @@
 =================
 [2018-08-16 11:40:43] Текст ошибки: Not found view C:\OSPanel\domains\ishop2.loc/app/views/Cart/add.php | File name: C:\OSPanel\domains\ishop2.loc\vendor\ishop\core\base\View.php | Line: 45
 =================
+[2018-08-17 11:23:58] Текст ошибки: Controller app\controllers\SearchControllernot found | File name: C:\OSPanel\domains\ishop2.loc\vendor\ishop\core\Router.php | Line: 41
+=================
+[2018-08-17 13:12:00] Текст ошибки: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '* LIKE '%TOILET TISSUE UNIVERSAL 2 PLY%' AND mark_view = '1'  -- keep-cache' at line 1 | File name: C:\OSPanel\domains\ishop2.loc\vendor\gabordemooij\redbean\RedBeanPHP\Driver\RPDO.php | Line: 188
+=================
+[2018-08-17 14:07:56] Текст ошибки: Not found view C:\OSPanel\domains\ishop2.loc/app/views/Cart/add.php | File name: C:\OSPanel\domains\ishop2.loc\vendor\ishop\core\base\View.php | Line: 45
+=================
+[2018-08-17 14:07:56] Текст ошибки: Not found view C:\OSPanel\domains\ishop2.loc/app/views/Cart/add.php | File name: C:\OSPanel\domains\ishop2.loc\vendor\ishop\core\base\View.php | Line: 45
+=================
+[2018-08-17 14:44:22] Текст ошибки: Controller app\controllers\SControllernot found | File name: C:\OSPanel\domains\ishop2.loc\vendor\ishop\core\Router.php | Line: 41
+=================

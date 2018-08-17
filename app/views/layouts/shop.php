@@ -148,6 +148,7 @@
     </head>
 <body>
 <?php $curr = \ishop\App::$app->getProperty('currency');?>
+<?php //$cats = \ishop\App::$app->getProperty('cats'); debug($cats);?>
 <?php //session_destroy();?>
 <?php //debug($_SESSION);?>
 <!-- header -->
@@ -226,16 +227,14 @@
                         </div>
                     </div>
                     <div class="searchBox left clear">
-                        <form action="<?=PATH?>search/" method="get" id="search_form" class="searchForm clear">
+                        <form action="search" method="get" id="search_form" class="searchForm clear" autocomplete="off">
                             <select name="category" id="catSelect">
                                 <option value="0">All</option>
-                                <?php if(isset($primary_category) && $primary_category > false):?>
-                                    <?php foreach ($primary_category as $item):?>
-                                        <option value="<?=$item['id']?>"><?=$item['title']?></option>
-                                    <?php endforeach;?>
-                                <?php endif;?>
+                                <?php foreach (\ishop\App::$app->getProperty('cats') as $key=>$item):?>
+                                <option value="<?=$key?>"><?=$item['title']?></option>
+                                <?php endforeach;?>
                             </select>
-                            <input type="search" name="search" id="autocomplete" placeholder="Search" class="searchText" <?php if(isset($_SESSION['search'])):?> value="<?=$_SESSION['search']?>"<?php endif?> />
+                            <input type="text" name="s" id="typeahead" placeholder="Search" class="searchText typeahead"/>
                             <input type="submit" name="searchbutton" value="J" class="searchSubmit" />
                         </form>
                     </div>
@@ -821,34 +820,6 @@ debug($logs->grep('SELECT'));
 </script>
 
 <?php //поиск в хедере сайта?>
-<script>
-    $("#catSelect").change(function(){
-        var category_search = this.value; // $(this).val()
-        $.ajax({
-            url: "<?=PATH . 'search/'?>",
-            type: "POST",
-            data: {"category_search": category_search},
-            dataType: "html",
-            cache: false,
-            success: function(data){
-                //if(data == 'true') console.log('ok');
-            }
-        })
-
-    });
-
-    $('#autocomplete').autocomplete({
-        source:'<?=PATH . 'search/'?>',
-        minLength:2,
-        select:function (event, ui){
-            window.location = '<?=PATH?>' + 'search/?search=' + encodeURIComponent(ui.item.value);
-        }
-    });
-
-    $( "#autocomplete" ).autocomplete({
-        delay: 500
-    });
-</script>
 
 <?php //Информация о складе ?>
 <script>
@@ -889,7 +860,15 @@ if (file_exists($filename) > 0){  require_once "$filename"; }
 //Обновляем токен
 //if(isset($_SESSION['csrf_token'])){unset($_SESSION['csrf_token']);}
 ?>
+<script>
+    var path = '<?=PATH;?>',
+        course = <?=$curr['value'];?>,
+        symboleLeft = '<?=$curr['symbol_left'];?>',
+        symboleRight = '<?=$curr['symbol_right'];?>';
+</script>
+<script src="/js/typeahead.bundle.js"></script>
 <script src="/js/main.js"></script>
+
 
 <!-- end scripts -->
 </body>

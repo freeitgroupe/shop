@@ -2,10 +2,7 @@
     <div class="embrace clear singlePage">
         <div class="breadCrumbs clear">
             <?=$breadcrumbs?>
-            <?php
-            $cats = \ishop\App::$app->getProperty('cats');
-            //debug($cats);
-            ?>
+            <?php $cats = \ishop\App::$app->getProperty('cats'); //debug($cats);?>
         </div>
         <section class="singleBox clear">
             <div class="leftBox clear left">

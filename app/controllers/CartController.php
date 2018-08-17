@@ -1,12 +1,10 @@
 <?php
-
-namespace app\controllers;
 /*
 $id - id товара,
 $qty - кол-во товара,
 $sup - поставщик товара
 */
-
+namespace app\controllers;
 use app\models\Cart;
 
 class CartController extends AppController
@@ -56,7 +54,7 @@ class CartController extends AppController
     public function clearAction(){
         unset($_SESSION['cart']);
         unset($_SESSION['cart.qty']);
-        unset($_SESSION['cart.summ']);
+        unset($_SESSION['cart.sum']);
         unset($_SESSION['cart.currency']);
         if($this->isAjax()){
             $this->loadView('cartModal');
