@@ -1,23 +1,51 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: admin
- * Date: 25.06.2018
- * Time: 15:54
- */
 
 namespace ishop\base;
+
 use ishop\Db;
+use Valitron\Validator;
 
-abstract class Model
-{
-    public $attributes = [];// for table from db
-    public $errors = [];//for err
-    public $rules = [];//for validation data
+abstract class Model{
 
-    public function __construct()
-    {
+    public $attributes = [];
+    public $errors = [];
+    public $rules = [];
+
+    public function __construct(){
         Db::instance();
+    }
+
+    //для загрузки данных из формы в модель
+    public function load($data){
+        foreach($this->attributes as $name => $value){
+            if(isset($data[$name])){
+                $this->attributes[$name] = $data[$name];
+            }
+        }
+    }
+
+    //Валидация данных
+    public function validate($data){
+        //Validator::langDir(WWW . '/validator/lang');
+        //Validator::lang('ru');
+        $v = new Validator($data);
+        $v->rules($this->rules);
+        if($v->validate()){
+            return true;
+        }
+        $this->errors = $v->errors();
+        return false;
+    }
+
+    public function getErrors(){
+        $errors = '<ul>';
+        foreach($this->errors as $error){
+            foreach($error as $item){
+                $errors .= "<li>$item</li>";
+            }
+        }
+        $errors .= '</ul>';
+        $_SESSION['error'] = $errors;
     }
 
 }

@@ -99,6 +99,29 @@ $('#miniCart .miniList').on('click', '.deleteItem', function () {
 });
 
 /*Cart*/
+
+$('body').on('click', '#refreash', function (e) {
+    e.preventDefault();
+    var currentPage = $(this).data('currentpage'),
+        totalPages = $(this).data('totalpages');
+   currentPage += 1;
+    $.ajax({
+        url: window.location.href + '?page=' + currentPage,
+        //data: {page: currentpage},
+        type: 'GET',
+        success: function (res) {
+            $('#content-product').append(res);
+            $('#refreash').data('currentpage', currentPage);
+            console.log(res);
+            if(currentPage == totalPages) $('#refreash').hide();
+
+            },
+        error: function () {
+            alert('Error! Try again later.');
+        }
+    });
+});
+
 $('#currency').change(function(){
     window.location = '/currency/change?curr=' + $(this).val();
 });

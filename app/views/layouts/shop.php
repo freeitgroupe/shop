@@ -260,6 +260,11 @@
                                 <?php if(isset($_SESSION['auth_role']) && $_SESSION['auth_role'] == 2):?>
                                     <a href="/admin/">Admin-panel</a>
                                 <?php endif;?>
+                                <?php if($_SESSION['user']):?>
+                                <p class="info-for-user">Hello!<a href="#" id="auth-info"></a></p>                                                          <p><a href="user/logout">Logout</a></p>
+                                <?php else:?>
+                                <p class="info-for-user">Hello!<a href="user/login" id="auth-info">Login</a></p>                                            <p><a href="user/signup">Create account</a></p>
+                                <?php endif;?>
                             </div>
                         </div>
                         <!--  <span class="wishList-block" id="shoppingWishList">-->
@@ -772,7 +777,7 @@ debug($logs->grep('SELECT'));
     $(function () {
         if(typeof(num) == 'undefined'){var num = 8;}
         //if(typeof(save_num) == 'undefined'){var save_num = num;}
-        $('#refreash').click(function(){
+        $('#').click(function(){
             $('#refreash').prop('disabled', 'true');
             $.ajax({
                 url: window.location.href,
