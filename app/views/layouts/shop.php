@@ -260,7 +260,7 @@
                                 <?php if(isset($_SESSION['auth_role']) && $_SESSION['auth_role'] == 2):?>
                                     <a href="/admin/">Admin-panel</a>
                                 <?php endif;?>
-                                <?php if($_SESSION['user']):?>
+                                <?php if(!empty($_SESSION['user'])):?>
                                 <p class="info-for-user">Hello!<a href="#" id="auth-info"></a></p>                                                          <p><a href="user/logout">Logout</a></p>
                                 <?php else:?>
                                 <p class="info-for-user">Hello!<a href="user/login" id="auth-info">Login</a></p>                                            <p><a href="user/signup">Create account</a></p>
@@ -398,8 +398,10 @@
     </div>
 </div>
 <!-- header end -->
-
     <?=$content?>
+<?php if(isset($_SESSION['error'])) unset($_SESSION['error'])?>
+
+<?php if(isset($_SESSION['success'])) unset($_SESSION['success'])?>
 
 <footer class="emraceFull">
     <div class="embrace clear">

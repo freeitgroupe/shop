@@ -8,6 +8,7 @@ use Valitron\Validator;
 abstract class Model{
 
     public $attributes = [];
+    public $attrMatchCheck = [];
     public $errors = [];
     public $rules = [];
 
@@ -15,7 +16,7 @@ abstract class Model{
         Db::instance();
     }
 
-    //для загрузки данных из формы в модель
+    //Загрузка данных из формы в модель на ообработку
     public function load($data){
         foreach($this->attributes as $name => $value){
             if(isset($data[$name])){
@@ -24,10 +25,21 @@ abstract class Model{
         }
     }
 
+    //Сохраняем данные
+    public function save($table){
+        $tbl = \R::dispense($table);
+        foreach ($this->attributes as $name=>$value){
+            $tbl->$name = $value;
+        }
+        //возвращает id записи из бд
+        return \R::store($tbl);
+    }
+
+
     //Валидация данных
     public function validate($data){
-        //Validator::langDir(WWW . '/validator/lang');
-        //Validator::lang('ru');
+        Validator::langDir(WWW . '/validator/lang');
+        Validator::lang('en');
         $v = new Validator($data);
         $v->rules($this->rules);
         if($v->validate()){
@@ -36,7 +48,7 @@ abstract class Model{
         $this->errors = $v->errors();
         return false;
     }
-
+    //Формирование ошибок
     public function getErrors(){
         $errors = '<ul>';
         foreach($this->errors as $error){

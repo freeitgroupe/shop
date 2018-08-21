@@ -61,4 +61,9 @@ class CartController extends AppController
         }
         redirect();
     }
+
+    public function viewAction(){
+
+        $this->setMeta('Cart');
+    }
 }
